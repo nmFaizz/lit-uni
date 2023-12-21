@@ -15,7 +15,7 @@ export default function LitNews(): JSX.Element {
                         </div>
 
                         <div className="bg-black text-white w-full px-4 py-3 flex flex-col gap-1">
-                            <p className="text-sm md:text-2xl">Top 1 rank in category of computer science program.</p>
+                            <p className="text-sm md:text-2xl line-clamp-2">Top 1 rank in category of computer science program.</p>
                             <p className="text-[12px] text-slate-400">Wednesday, 12 Desember 2026</p>
                             <p className="line-clamp-2 text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, omnis laudantium deserunt praesentium quasi nisi ipsam amet eligendi quis numquam?</p>
                         </div>
@@ -28,7 +28,7 @@ export default function LitNews(): JSX.Element {
                         </div>
 
                         <div className="bg-black text-white w-full px-4 py-3 flex flex-col gap-1">
-                            <p className="textsm md:text-2xl">Invented new technology to prevent malliscious things.</p>
+                            <p className="textsm md:text-2xl line-clamp-2">Invented new technology to prevent malliscious things.</p>
                             <p className="text-[12px] text-slate-400">Friday, 01 Desember 2026</p>
                             <p className="line-clamp-2 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas est consectetur tenetur officia blanditiis sapiente molestias minus pariatur laborum dignissimos?</p>
                         </div>
@@ -41,7 +41,7 @@ export default function LitNews(): JSX.Element {
                         </div>
 
                         <div className="bg-black text-white w-full px-4 py-3 flex flex-col gap-1">
-                            <p className="text-sm md:text-2xl">LIT for Green World ECOMARATHON2023.</p>
+                            <p className="text-sm md:text-2xl line-clamp-2">LIT for Green World ECOMARATHON2023.</p>
                             <p className="text-[12px] text-slate-400">Monday, 20 November 2026</p>
                             <p className="line-clamp-2 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas est consectetur tenetur officia blanditiis sapiente molestias minus pariatur laborum dignissimos?</p>
                         </div>
