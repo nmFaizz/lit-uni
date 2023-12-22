@@ -6,12 +6,12 @@ export default function LitNews(): JSX.Element {
             <div className="h-[2px] w-full bg-white"></div>
             <div className="h-8 w-24 bg-white"></div>
 
-            <div className="flex mt-12 h-full flex-col md:flex-row gap-4">
+            <div className="flex mt-12 h-full flex-col lg:flex-row gap-4">
                 <div className="flex w-full flex-col gap-2 flex-1">
-                    <div className="w-full text-black flex max-w-[820px] h-40">
+                    <div className="w-full text-black flex lg:max-w-[820px] h-40">
                         <div className="bg-white w-[17rem] text-center flex flex-col justify-center items-center border-e-red-500 border-8 border-solid border-y-transparent border-s-transparent">
-                            <p className="text-[4rem]">12</p>
-                            <p className="text-[1.6rem]">December</p>
+                            <p className="text-[3rem] sm:text-[4rem] font-bold italic">12</p>
+                            <p className="text-[1.2rem] sm:text-[1.6rem]">December</p>
                         </div>
 
                         <div className="bg-black text-white w-full px-4 py-3 flex flex-col gap-1">
@@ -21,10 +21,10 @@ export default function LitNews(): JSX.Element {
                         </div>
                     </div>
 
-                    <div className="w-full text-black flex max-w-[820px] h-40">
+                    <div className="w-full text-black flex lg:max-w-[820px] h-40">
                         <div className="bg-white w-[17rem] text-center flex flex-col justify-center items-center border-e-red-500 border-8 border-solid border-y-transparent border-s-transparent">
-                            <p className="text-[4rem]">01</p>
-                            <p className="text-[1.6rem]">December</p>
+                            <p className="text-[3rem] sm:text-[4rem] font-bold italic">01</p>
+                            <p className="text-[1.2rem] sm:text-[1.6rem]">December</p>
                         </div>
 
                         <div className="bg-black text-white w-full px-4 py-3 flex flex-col gap-1">
@@ -34,10 +34,10 @@ export default function LitNews(): JSX.Element {
                         </div>
                     </div>
 
-                    <div className="w-full text-black flex max-w-[820px] h-40">
+                    <div className="w-full text-black flex lg:max-w-[820px] h-40">
                         <div className="bg-white w-[17rem] text-center flex flex-col justify-center items-center border-e-red-500 border-8 border-solid border-y-transparent border-s-transparent">
-                            <p className="text-[4rem]">20</p>
-                            <p className="text-[1.6rem]">November</p>
+                            <p className="text-[3rem] sm:text-[4rem] font-bold italic">20</p>
+                            <p className="text-[1.2rem] sm:text-[1.6rem]">November</p>
                         </div>
 
                         <div className="bg-black text-white w-full px-4 py-3 flex flex-col gap-1">

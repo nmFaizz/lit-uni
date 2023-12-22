@@ -28,7 +28,7 @@ function NavBar() {
   
   return (
     <header className="sticky top-0 z-50 w-full bg-stone-950">
-      <div className='px-4 lg:px-24 flex h-[90px] lg:h-[90px] lg:justify-between lg:items-center animate-fade animate-once animate-ease-in-out'>
+      <div className='px-4 lg:px-24 flex h-[65px] lg:h-[90px] lg:justify-between lg:items-center animate-fade animate-once animate-ease-in-out'>
             <div className='flex items-center w-full lg:h-0 justify-between'>
               <div className="flex items-center gap-5">
                 <img src="/lit-logo-white.png" alt="lit-logo" className="w-[50px]" decoding="async"/>
@@ -89,7 +89,7 @@ function HeroSection() {
 
 function SideBar() {
   return (
-    <div className="fixed right-0 bg-red-700 py-[1rem] px-[0.5rem] top-[30vh] rounded-s-md">
+    <div className="fixed right-0 bg-red-700 py-[1rem] px-[0.5rem] top-[30vh] rounded-s-md hidden md:block">
       <FaLinkedin style={{fontSize: '2.5rem'}}/>
       <FaInstagram style={{fontSize: '2.5rem'}} />
       <FaSquareXTwitter style={{fontSize: '2.5rem'}} />
@@ -196,18 +196,18 @@ function App() {
     
         <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row'>
           <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center'>
-            <p className="text-[35px]">120.000+</p>
-            <p className="text-[35px]">STUDENTS</p>
+            <p className="text-[22px] sm:text-[35px]">120.000+</p>
+            <p className="text-[22px] sm:text-[35px]">STUDENTS</p>
           </div>
 
           <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center'>
-            <p className="text-[35px]">62</p>
-            <p className="text-[35px]">STUDY PROGRAMS</p>
+            <p className="text-[22px] sm:text-[35px]">62</p>
+            <p className="text-[22px] sm:text-[35px]">STUDY PROGRAMS</p>
           </div>
 
           <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center'>
-            <p className="text-[35px]">17</p>
-            <p className="text-[35px]">FACULTIES</p>
+            <p className="text-[22px] sm:text-[35px]">17</p>
+            <p className="text-[22px] sm:text-[35px]">FACULTIES</p>
           </div>
         </div>
 
