@@ -19,6 +19,7 @@ function LitAwards() {
 
 function NavBar() {
   const [menu, setMenu] = useState(false)
+  const navOpt: string[] = ['PROGRAMME', 'ADMISSIONS', 'RESEARCH', 'ABOUT', 'INTERNATIONAL']
 
   function isMenu() {
     setMenu(pervState => {
@@ -42,20 +43,12 @@ function NavBar() {
               </div>
             </div>
             <nav className='gap-2 h-full items-center lg:flex hidden'>
-              <span className='hover:bg-red-600 lg:px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>PROGRAMME</span>
-              <span className='hover:bg-red-600 lg:px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>ADMISSIONS</span>
-              <span className='hover:bg-red-600 lg:px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>RESEARCH</span>
-              <span className='hover:bg-red-600 lg:px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>ABOUT</span>
-              <span className='hover:bg-red-600 lg:px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>INTERNATIONAL</span>
+              {navOpt.map(opt => <span className='hover:bg-red-600 lg:px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>{opt}</span>)}
             </nav>
         </div>
         <nav className={`lg:hidden bg-stone-950 ${menu ? 'h-[100vh]' : 'h-0 overflow-hidden'} transition-all`}>
           <div>
-            <span className='hover:bg-red-600 px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>PROGRAMME</span>
-            <span className='hover:bg-red-600 px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>ADMISSIONS</span>
-            <span className='hover:bg-red-600 px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>RESEARCH</span>
-            <span className='hover:bg-red-600 px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>ABOUT</span>
-            <span className='hover:bg-red-600 px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>INTERNATIONAL</span>
+            {navOpt.map(opt => <span className='hover:bg-red-600 px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>{opt}</span> )}
           </div>
         </nav>
     </header>
@@ -98,6 +91,31 @@ function SideBar() {
 }
 
 function LitLocation() {
+  const detailLoc = [
+    {
+      header: 'LIT - MALAYSIA',
+      color: 'bg-red-700',
+      location: 'SELANGOR, MALAYSIA',
+      image: '/location-1.jpg',
+      imgAlt: 'lit-malay'
+    },
+    {
+      header: 'LIT - JAPAN',
+      color: 'bg-blue-700',
+      location: 'KYOTO, JAPAN',
+      image: '/loc-2.jpg',
+      imgAlt: 'lit-jpn'
+    },
+    {
+      header: 'LIT - INDONESIA',
+      color: 'bg-yellow-700',
+      location: 'SURABAYA, INDONESIA',
+      image: '/loc-3.jpg',
+      imgAlt: 'lit-id'
+    },
+
+  ]
+
   return (
     <div className="w-full px-5 mb-24">
       <div className="py-12">
@@ -107,51 +125,23 @@ function LitLocation() {
       </div>
 
       <div className="flex-col md:flex-row flex gap-4 justify-center items-center">
-        <div className="w-full md:flex-1">
-          <div className="bg-white rounded-t-md w-full flex items-center px-4">
-            <div className="bg-red-700 rounded-full w-[12px] h-[12px] mr-4"></div>
-            <p className="text-black inline">LIT - MALAYSIA</p>
+        {detailLoc.map(detail => 
+          <div className="w-full md:flex-1">
+            <div className="bg-white rounded-t-md w-full flex items-center px-4">
+              <div className={`${detail.color} rounded-full w-[12px] h-[12px] mr-4`}></div>
+              <p className="text-black inline">{detail.header}</p>
+            </div>
+  
+            <div className="bg-black flex-1 h-[520px] bg-cover bg-no-repeat bg-center">
+              <img src={detail.image} alt={detail.imgAlt} style={{width: '100%', height: '100%', objectFit: 'cover'}} decoding="async" />
+            </div>
+  
+            <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
+              <FaLocationDot style={{fontSize: '2rem'}} />
+              <p className="italic ml-3">{detail.location}</p>
+            </div>
           </div>
-          <div className="bg-black h-[520px] bg-cover bg-bottom bg-no-repeat">
-            <img src="/location-1.jpg" alt="lit-malay" style={{width: '100%', height: '100%', objectFit: 'cover'}} decoding="async" />
-          </div>
-
-          <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
-            <FaLocationDot style={{fontSize: '2rem'}} />
-            <p className="italic ml-3">SELANGOR, MALAYSIA</p>
-          </div>
-        </div>
-
-        <div className="w-full md:flex-1">
-          <div className="bg-white rounded-t-md w-full flex items-center px-4">
-            <div className="bg-blue-700 rounded-full w-[12px] h-[12px] mr-4"></div>
-            <p className="text-black inline">LIT - JAPAN</p>
-          </div>
-
-          <div className="bg-black flex-1 h-[520px] bg-cover bg-no-repeat bg-center">
-            <img src="/loc-2.jpg" alt="lit-japan" style={{width: '100%', height: '100%', objectFit: 'cover'}} decoding="async" />
-          </div>
-
-          <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
-            <FaLocationDot style={{fontSize: '2rem'}} />
-            <p className="italic ml-3">KYOTO, JAPAN</p>
-          </div>
-        </div>
-
-        <div className="w-full md:flex-1">
-          <div className="bg-white rounded-t-md w-full flex items-center px-4">
-            <div className="bg-yellow-700 rounded-full w-[12px] h-[12px] mr-4"></div>
-            <p className="text-black inline">LIT - INDONESIA</p>
-          </div>
-          <div className="bg-black flex-1 h-[520px] bg-cover bg-no-repeat bg-bottom">
-            <img src="/loc-3.jpg" alt="lit-id" style={{width: '100%', height: '100%', objectFit: 'cover'}} decoding="async" />  
-          </div>
-
-          <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
-            <FaLocationDot style={{fontSize: '2rem'}} />
-            <p className="italic ml-3">SURABAYA, INDONESIA</p>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   )
@@ -187,41 +177,53 @@ function LitFooter() {
   )
 }
 
+function LitStat() {
+  const stats = [
+    {
+      num: 123872,
+      text: 'STUDENTS'
+    },
+    {
+      num: 62,
+      text: 'STUDY PROGRAMS'
+    },
+    {
+      num: 17,
+      text: 'FACULTIES'
+    }
+  ]
+
+  return (
+    <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row'>
+
+      {stats.map(stat => 
+        <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center'>
+          <p className="text-[22px] sm:text-[35px]">{stat.num}</p>
+          <p className="text-[22px] sm:text-[35px]">{stat.text}</p>
+        </div> 
+      )}
+    </div>
+  )
+}
+
 function App() {
   return (
-    <>
-      <div className='bg-stone-900'>
-        <NavBar />
-        <HeroSection />
-    
-        <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row'>
-          <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center'>
-            <p className="text-[22px] sm:text-[35px]">120.000+</p>
-            <p className="text-[22px] sm:text-[35px]">STUDENTS</p>
-          </div>
+    <div className='bg-stone-900'>
+      <NavBar />
+      <HeroSection />
+  
+      <LitStat />
 
-          <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center'>
-            <p className="text-[22px] sm:text-[35px]">62</p>
-            <p className="text-[22px] sm:text-[35px]">STUDY PROGRAMS</p>
-          </div>
+      <LitNews />
 
-          <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center'>
-            <p className="text-[22px] sm:text-[35px]">17</p>
-            <p className="text-[22px] sm:text-[35px]">FACULTIES</p>
-          </div>
-        </div>
+      <LitAwards />
 
-        <LitNews />
+      <LitLocation />
 
-        <LitAwards />
+      <LitFooter />
 
-        <LitLocation />
-
-        <LitFooter />
-
-        <SideBar />
-      </div>
-    </>
+      <SideBar />
+    </div>
   )
 }
 
