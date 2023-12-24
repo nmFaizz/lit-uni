@@ -57,9 +57,8 @@ function NavBar() {
 function HeroSection() {
   return (
     <div>
-      <div className="h-[590px] w-full relative">
-        <img src="/institute.webp" alt="lit-uni" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
-        <div className='flex items-center md:px-[10rem] w-full h-full px-5 bg-gradient-to-r from-stone-950 absolute top-0 left-0'>
+      <div className="h-[590px] w-full bg-[url(/institute.webp)] bg-cover bg-center">
+        <div className='flex items-center md:px-[10rem] w-full h-full px-5 bg-gradient-to-r from-stone-950'>
           <div className="animate-fade-right animate-once animate-ease-in-out">
             <p className="font-bold text-3xl md:text-[2.5rem]">STUDY AT LIT.</p>
             <p className="font-bold text-3xl md:text-[2.5rem]">TECHNO CAMPUS</p>
@@ -97,7 +96,6 @@ function LitLocation() {
       color: 'bg-red-700',
       location: 'SELANGOR, MALAYSIA',
       image: '/location-1.jpg',
-      imgAlt: 'lit-malay'
     },
     {
       id: 2,
@@ -105,7 +103,6 @@ function LitLocation() {
       color: 'bg-blue-700',
       location: 'KYOTO, JAPAN',
       image: '/loc-2.jpg',
-      imgAlt: 'lit-jpn'
     },
     {
       id: 3,
@@ -113,7 +110,6 @@ function LitLocation() {
       color: 'bg-yellow-700',
       location: 'SURABAYA, INDONESIA',
       image: '/loc-3.jpg',
-      imgAlt: 'lit-id'
     },
 
   ]
@@ -134,9 +130,10 @@ function LitLocation() {
               <p className="text-black inline">{detail.header}</p>
             </div>
   
-            <div className="bg-black flex-1 h-[520px] bg-cover bg-no-repeat bg-center">
-              <img src={detail.image} alt={detail.imgAlt} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+            <div className="bg-black flex-1 h-[520px] w-full bg-cover bg-no-repeat bg-center" style={{ backgroundImage: `url(${detail.image})` }}>
+              
             </div>
+
   
             <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
               <FaLocationDot style={{fontSize: '2rem'}} />
