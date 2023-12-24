@@ -4,7 +4,8 @@ import { TbTriangleInvertedFilled } from "react-icons/tb";
 import LitNews from "./components/LitNews";
 import { RiMenu3Fill } from "react-icons/ri";
 import { useState } from "react";
-
+import CountUp from 'react-countup';
+import ScrollTrigger from "react-scroll-trigger";
 
 
 function LitAwards() {
@@ -20,35 +21,33 @@ function LitAwards() {
 function NavBar() {
   const [menu, setMenu] = useState(false)
   const navOpt: string[] = ['PROGRAMME', 'ADMISSIONS', 'RESEARCH', 'ABOUT', 'INTERNATIONAL']
-
-  function isMenu() {
-    setMenu(pervState => {
-      return !pervState
-    })
-  }
   
   return (
     <header className="sticky top-0 z-50 w-full bg-stone-950">
       <div className='px-4 lg:px-24 flex h-[65px] lg:h-[90px] lg:justify-between lg:items-center animate-fade animate-once animate-ease-in-out'>
             <div className='flex items-center w-full lg:h-0 justify-between'>
               <div className="flex items-center gap-5">
-                <img src="/lit-logo-white.png" alt="lit-logo" className="w-[50px]" decoding="async"/>
+                <img src="/lit-logo-white.png" alt="lit-logo" className="w-[50px]"/>
                 <div className="w-24">
                   <p className='text-[11px] border-solid border-s-2 ps-5'>Lumii Institute Of Technology</p>
                 </div>
               </div>
 
-              <div className={`lg:hidden ${menu ? 'text-red-500' : 'text-white-500'}`} onClick={isMenu}>
+              <div className={`lg:hidden ${menu ? 'text-red-500' : 'text-white-500'}`} onClick={() => setMenu(pervState => !pervState)}>
                 <RiMenu3Fill style={{fontSize: '2rem'}} />
               </div>
             </div>
             <nav className='gap-2 h-full items-center lg:flex hidden'>
-              {navOpt.map(opt => <span className='hover:bg-red-600 lg:px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>{opt}</span>)}
+              {navOpt.map(opt => 
+                <span className='hover:bg-red-600 lg:px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer' key={opt}>{opt}</span>
+              )}
             </nav>
         </div>
         <nav className={`lg:hidden bg-stone-950 ${menu ? 'h-[100vh]' : 'h-0 overflow-hidden'} transition-all`}>
           <div>
-            {navOpt.map(opt => <span className='hover:bg-red-600 px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer'>{opt}</span> )}
+            {navOpt.map(opt => 
+              <span className='hover:bg-red-600 px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer' key={opt}>{opt}</span> 
+            )}
           </div>
         </nav>
     </header>
@@ -58,8 +57,8 @@ function NavBar() {
 function HeroSection() {
   return (
     <div>
-      <div className="h-[560px] w-full relative">
-        <img src="/institute.webp" alt="lit-uni" style={{width: '100%', height: '100%', objectFit: 'cover'}} decoding="async" />
+      <div className="h-[590px] w-full relative">
+        <img src="/institute.webp" alt="lit-uni" style={{width: '100%', height: '100%', objectFit: 'cover'}} />
         <div className='flex items-center md:px-[10rem] w-full h-full px-5 bg-gradient-to-r from-stone-950 absolute top-0 left-0'>
           <div className="animate-fade-right animate-once animate-ease-in-out">
             <p className="font-bold text-3xl md:text-[2.5rem]">STUDY AT LIT.</p>
@@ -93,6 +92,7 @@ function SideBar() {
 function LitLocation() {
   const detailLoc = [
     {
+      id: 1,
       header: 'LIT - MALAYSIA',
       color: 'bg-red-700',
       location: 'SELANGOR, MALAYSIA',
@@ -100,6 +100,7 @@ function LitLocation() {
       imgAlt: 'lit-malay'
     },
     {
+      id: 2,
       header: 'LIT - JAPAN',
       color: 'bg-blue-700',
       location: 'KYOTO, JAPAN',
@@ -107,6 +108,7 @@ function LitLocation() {
       imgAlt: 'lit-jpn'
     },
     {
+      id: 3,
       header: 'LIT - INDONESIA',
       color: 'bg-yellow-700',
       location: 'SURABAYA, INDONESIA',
@@ -126,14 +128,14 @@ function LitLocation() {
 
       <div className="flex-col md:flex-row flex gap-4 justify-center items-center">
         {detailLoc.map(detail => 
-          <div className="w-full md:flex-1">
+          <div className="w-full md:flex-1" key={detail.id}>
             <div className="bg-white rounded-t-md w-full flex items-center px-4">
               <div className={`${detail.color} rounded-full w-[12px] h-[12px] mr-4`}></div>
               <p className="text-black inline">{detail.header}</p>
             </div>
   
             <div className="bg-black flex-1 h-[520px] bg-cover bg-no-repeat bg-center">
-              <img src={detail.image} alt={detail.imgAlt} style={{width: '100%', height: '100%', objectFit: 'cover'}} decoding="async" />
+              <img src={detail.image} alt={detail.imgAlt} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
             </div>
   
             <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
@@ -178,31 +180,42 @@ function LitFooter() {
 }
 
 function LitStat() {
-  const stats = [
+  
+  
+  const details = [
     {
+      id: 1,
       num: 123872,
       text: 'STUDENTS'
     },
     {
+      id: 2,
       num: 62,
       text: 'STUDY PROGRAMS'
     },
     {
+      id: 3,
       num: 17,
       text: 'FACULTIES'
     }
   ]
 
-  return (
-    <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row'>
+  const [counterOn, setCounterOn] = useState(false)
 
-      {stats.map(stat => 
-        <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center'>
-          <p className="text-[22px] sm:text-[35px]">{stat.num}</p>
-          <p className="text-[22px] sm:text-[35px]">{stat.text}</p>
-        </div> 
-      )}
-    </div>
+  return (
+    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+      <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row'>   
+        {details.map(detail => 
+          <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center' key={detail.id}>
+            <p className="text-[22px] sm:text-[35px]">
+              {counterOn && <CountUp start={0} end={detail.num} duration={3} />}
+            </p>
+            <p className="text-[22px] sm:text-[35px]">{detail.text}</p>
+          </div> 
+        )}
+      </div>
+
+    </ScrollTrigger>
   )
 }
 
