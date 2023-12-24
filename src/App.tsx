@@ -199,15 +199,13 @@ function LitStat() {
       text: 'FACULTIES'
     }
   ]
-
-  const [counterOn, setCounterOn] = useState(false)
-
+  
   return (
     <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row'>   
       {details.map(detail => 
         <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center' key={detail.id}>
           <p className="text-[22px] sm:text-[35px]">
-            {counterOn && <CountUp start={0} end={detail.num} duration={3} />}
+            <CountUp start={0} end={detail.num} duration={3} />
           </p>
           <p className="text-[22px] sm:text-[35px]">{detail.text}</p>
         </div> 
