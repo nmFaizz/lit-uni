@@ -5,7 +5,7 @@ import LitNews from "./components/LitNews";
 import { RiMenu3Fill } from "react-icons/ri";
 import { useState } from "react";
 import CountUp from 'react-countup';
-import ScrollTrigger from "react-scroll-trigger";
+
 
 
 function LitAwards() {
@@ -203,19 +203,16 @@ function LitStat() {
   const [counterOn, setCounterOn] = useState(false)
 
   return (
-    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-      <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row'>   
-        {details.map(detail => 
-          <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center' key={detail.id}>
-            <p className="text-[22px] sm:text-[35px]">
-              {counterOn && <CountUp start={0} end={detail.num} duration={3} />}
-            </p>
-            <p className="text-[22px] sm:text-[35px]">{detail.text}</p>
-          </div> 
-        )}
-      </div>
-
-    </ScrollTrigger>
+    <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row'>   
+      {details.map(detail => 
+        <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center' key={detail.id}>
+          <p className="text-[22px] sm:text-[35px]">
+            {counterOn && <CountUp start={0} end={detail.num} duration={3} />}
+          </p>
+          <p className="text-[22px] sm:text-[35px]">{detail.text}</p>
+        </div> 
+      )}
+    </div>
   )
 }
 
