@@ -130,9 +130,9 @@ function LitLocation() {
               <p className="text-black inline">{detail.header}</p>
             </div>
   
-            <div className="bg-black flex-1 h-[520px] w-full bg-cover bg-no-repeat bg-center" style={{ backgroundImage: `url(${detail.image})` }}>
-              
-            </div>
+            <div 
+            className="bg-black flex-1 h-[520px] w-full bg-cover bg-no-repeat bg-center" 
+            ></div>
 
   
             <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
