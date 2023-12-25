@@ -95,21 +95,21 @@ function LitLocation() {
       header: 'LIT - MALAYSIA',
       color: 'bg-red-700',
       location: 'SELANGOR, MALAYSIA',
-      image: '/location-1.jpg',
+      image: '/location-1.webp',
     },
     {
       id: 2,
       header: 'LIT - JAPAN',
       color: 'bg-blue-700',
       location: 'KYOTO, JAPAN',
-      image: '/loc-2.jpg',
+      image: '/loc-2.webp',
     },
     {
       id: 3,
       header: 'LIT - INDONESIA',
       color: 'bg-yellow-700',
       location: 'SURABAYA, INDONESIA',
-      image: '/loc-3.jpg',
+      image: '/loc-3.webp',
     },
 
   ]
@@ -132,7 +132,9 @@ function LitLocation() {
   
             <div 
             className="bg-black flex-1 h-[520px] w-full bg-cover bg-no-repeat bg-center" 
-            ></div>
+            style={{ backgroundImage: `url(${detail.image})` }}>
+              
+            </div>
 
   
             <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
