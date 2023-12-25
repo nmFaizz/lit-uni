@@ -3,7 +3,7 @@ import { dateConvert } from "../../utils"
 
 export default function NewsItem(props: {id: number, title: string, date: string, body: string }) {
     const { id, title, date, body } = props
-
+    
     return (
         <div className="w-full text-black flex lg:max-w-[820px] h-40" key={id}>
             <div className="bg-white w-[17rem] text-center flex flex-col justify-center items-center border-e-red-500 border-8 border-solid border-y-transparent border-s-transparent">

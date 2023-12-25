@@ -2,7 +2,8 @@
 export default {
   content: [
     "./src/App.tsx",
-    "./src/components/LitNews.tsx"
+    "./src/components/LitNews/LitNews.tsx",
+    "./src/components/LitNews/NewsItem.tsx"
   ],
   theme: {
     extend: {},

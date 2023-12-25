@@ -34,6 +34,7 @@ export default function LitNews(): JSX.Element {
                     {news.map(item => 
                         <NewsItem key={item.id} {...item} />
                     )}
+                    
                     <button className="w-[150px] px-3 py-2 border-white border-2 hover:bg-slate-200 hover:text-black">View More</button>
                 </div>
 
