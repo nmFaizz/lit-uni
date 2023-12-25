@@ -5,6 +5,8 @@ import LitNews from "./components/LitNews/LitNews";
 import { RiMenu3Fill } from "react-icons/ri";
 import { useState } from "react";
 import CountUp from 'react-countup';
+import { InView } from "react-intersection-observer";
+
 
 function LitAwards() {
   return (
@@ -17,7 +19,7 @@ function LitAwards() {
 }
 
 function NavBar() {
-  const [menu, setMenu] = useState(false)
+  const [isMenu, setIsMenu] = useState(false)
   const navOpt: string[] = ['PROGRAMME', 'ADMISSIONS', 'RESEARCH', 'ABOUT', 'INTERNATIONAL']
   
   return (
@@ -31,7 +33,10 @@ function NavBar() {
                 </div>
               </div>
 
-              <div className={`lg:hidden ${menu ? 'text-red-500' : 'text-white-500'}`} onClick={() => setMenu(pervState => !pervState)}>
+              <div 
+                className={`lg:hidden ${isMenu ? 'text-red-500' : 'text-white-500'}`} 
+                onClick={() => setIsMenu(pervState => !pervState)}
+              >
                 <RiMenu3Fill style={{fontSize: '2rem'}} />
               </div>
             </div>
@@ -41,7 +46,7 @@ function NavBar() {
               )}
             </nav>
         </div>
-        <nav className={`lg:hidden bg-stone-950 ${menu ? 'h-[100vh]' : 'h-0 overflow-hidden'} transition-all`}>
+        <nav className={`lg:hidden bg-stone-950 ${isMenu ? 'h-[100vh]' : 'h-0 overflow-hidden'} transition-all`}>
           <div>
             {navOpt.map(opt => 
               <span className='hover:bg-red-600 px-2 py-4 lg:py-1 h-full flex items-center cursor-pointer' key={opt}>{opt}</span> 
@@ -78,11 +83,11 @@ function HeroSection() {
 
 function SideBar() {
   return (
-    <div className="fixed right-0 bg-red-700 py-[1rem] px-[0.5rem] top-[30vh] rounded-s-md hidden md:block animate-fade-left animate-once animate-duration-[1500ms]">
+    <aside className="fixed right-0 bg-red-700 py-[1rem] px-[0.5rem] top-[30vh] rounded-s-md hidden md:block animate-fade-left animate-once animate-duration-[1500ms]">
       <FaLinkedin style={{fontSize: '2.5rem'}}/>
       <FaInstagram style={{fontSize: '2.5rem'}} />
       <FaSquareXTwitter style={{fontSize: '2.5rem'}} />
-    </div>
+    </aside>
   )
 }
 
@@ -93,21 +98,21 @@ function LitLocation() {
       header: 'LIT - MALAYSIA',
       color: 'bg-red-700',
       location: 'SELANGOR, MALAYSIA',
-      image: '/location-1.jpg',
+      image: '/location-1.webp',
     },
     {
       id: 2,
       header: 'LIT - JAPAN',
       color: 'bg-blue-700',
       location: 'KYOTO, JAPAN',
-      image: '/loc-2.jpg',
+      image: '/loc-2.webp',
     },
     {
       id: 3,
       header: 'LIT - INDONESIA',
       color: 'bg-yellow-700',
       location: 'SURABAYA, INDONESIA',
-      image: '/loc-3.jpg',
+      image: '/loc-3.webp',
     },
 
   ]
@@ -148,9 +153,9 @@ function LocItems(props: { campus: Campus }) {
       </div>
 
       <div 
-      className="bg-black flex-1 h-[520px] w-full bg-cover bg-no-repeat bg-center" 
-      style={{ backgroundImage: `url(${campus.image})` }}>
-        
+        className="bg-black flex-1 h-[520px] w-full bg-cover bg-no-repeat bg-center" 
+        style={{ backgroundImage: `url(${campus.image})` }}
+      >  
       </div>
 
 
@@ -193,8 +198,8 @@ function LitFooter() {
 }
 
 function LitStat() {
-  
-  
+
+
   const details = [
     {
       id: 1,
@@ -213,17 +218,27 @@ function LitStat() {
     }
   ]
   
+  
   return (
-    <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row'>   
-      {details.map(detail => 
-        <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center' key={detail.id}>
-          <p className="text-[22px] sm:text-[35px]">
-            <CountUp start={0} end={detail.num} duration={3} />
-          </p>
-          <p className="text-[22px] sm:text-[35px]">{detail.text}</p>
-        </div> 
-      )}
-    </div>
+    
+    <InView>
+    {({ inView, ref }) => (
+      <div className='flex gap-2 w-full md:justify-center flex-col md:flex-row' ref={ref}>
+        {details.map(detail => 
+          <div className='bg-red-700 text-center h-[220px] p-4 flex-1 flex flex-col justify-center items-center' key={detail.id}>
+            <p className="text-[22px] sm:text-[35px]">
+              {
+                inView &&
+                <CountUp start={0} end={detail.num} duration={3} />
+              }
+            </p>
+            <p className="text-[22px] sm:text-[35px]">{detail.text}</p>
+          </div> 
+        )}
+      </div>
+    )}
+    </InView>
+    
   )
 }
 
