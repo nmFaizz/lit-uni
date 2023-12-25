@@ -1,18 +1,16 @@
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter, FaLocationDot } from "react-icons/fa6";
 import { TbTriangleInvertedFilled } from "react-icons/tb";
-import LitNews from "./components/LitNews";
+import LitNews from "./components/LitNews/LitNews";
 import { RiMenu3Fill } from "react-icons/ri";
 import { useState } from "react";
 import CountUp from 'react-countup';
-
-
 
 function LitAwards() {
   return (
     <div className="w-full flex gap-12 flex-wrap justify-center bg-red-700 py-12 ">
         <img src="qs-world.svg" alt="" width={300} />
-        <img src="THE.svg" alt=""width={300} />
+        <img src="THE.svg" alt="" width={300} />
         <img src="webomet.png" alt="" width={300} />
     </div>
   )
@@ -24,7 +22,7 @@ function NavBar() {
   
   return (
     <header className="sticky top-0 z-50 w-full bg-stone-950">
-      <div className='px-4 lg:px-24 flex h-[65px] lg:h-[90px] lg:justify-between lg:items-center animate-fade animate-once animate-ease-in-out'>
+      <div className='px-4 lg:px-24 flex h-[65px] lg:h-[90px] lg:justify-between lg:items-center animate-fade animate-once animate-duration-[1500ms] animate-ease-in-out'>
             <div className='flex items-center w-full lg:h-0 justify-between'>
               <div className="flex items-center gap-5">
                 <img src="/lit-logo-white.png" alt="lit-logo" className="w-[50px]"/>
@@ -59,7 +57,7 @@ function HeroSection() {
     <div>
       <div className="h-[590px] w-full bg-[url(/institute.webp)] bg-cover bg-center">
         <div className='flex items-center md:px-[10rem] w-full h-full px-5 bg-gradient-to-r from-stone-950'>
-          <div className="animate-fade-right animate-once animate-ease-in-out">
+          <div className="animate-fade-right animate-once animate-duration-[1500ms] animate-ease-in-out ">
             <p className="font-bold text-3xl md:text-[2.5rem]">STUDY AT LIT.</p>
             <p className="font-bold text-3xl md:text-[2.5rem]">TECHNO CAMPUS</p>
             <div className="w-full bg-white h-[2px] mt-2"></div>
@@ -80,7 +78,7 @@ function HeroSection() {
 
 function SideBar() {
   return (
-    <div className="fixed right-0 bg-red-700 py-[1rem] px-[0.5rem] top-[30vh] rounded-s-md hidden md:block">
+    <div className="fixed right-0 bg-red-700 py-[1rem] px-[0.5rem] top-[30vh] rounded-s-md hidden md:block animate-fade-left animate-once animate-duration-[1500ms]">
       <FaLinkedin style={{fontSize: '2.5rem'}}/>
       <FaInstagram style={{fontSize: '2.5rem'}} />
       <FaSquareXTwitter style={{fontSize: '2.5rem'}} />
@@ -95,21 +93,21 @@ function LitLocation() {
       header: 'LIT - MALAYSIA',
       color: 'bg-red-700',
       location: 'SELANGOR, MALAYSIA',
-      image: '/location-1.webp',
+      image: '/location-1.jpg',
     },
     {
       id: 2,
       header: 'LIT - JAPAN',
       color: 'bg-blue-700',
       location: 'KYOTO, JAPAN',
-      image: '/loc-2.webp',
+      image: '/loc-2.jpg',
     },
     {
       id: 3,
       header: 'LIT - INDONESIA',
       color: 'bg-yellow-700',
       location: 'SURABAYA, INDONESIA',
-      image: '/loc-3.webp',
+      image: '/loc-3.jpg',
     },
 
   ]
@@ -124,25 +122,41 @@ function LitLocation() {
 
       <div className="flex-col md:flex-row flex gap-4 justify-center items-center">
         {detailLoc.map(detail => 
-          <div className="w-full md:flex-1" key={detail.id}>
-            <div className="bg-white rounded-t-md w-full flex items-center px-4">
-              <div className={`${detail.color} rounded-full w-[12px] h-[12px] mr-4`}></div>
-              <p className="text-black inline">{detail.header}</p>
-            </div>
-  
-            <div 
-            className="bg-black flex-1 h-[520px] w-full bg-cover bg-no-repeat bg-center" 
-            style={{ backgroundImage: `url(${detail.image})` }}>
-              
-            </div>
-
-  
-            <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
-              <FaLocationDot style={{fontSize: '2rem'}} />
-              <p className="italic ml-3">{detail.location}</p>
-            </div>
-          </div>
+          <LocItems campus={detail} key={detail.id} />
         )}
+      </div>
+    </div>
+  )
+}
+
+interface Campus {
+  id: number,
+  header: string,
+  color: string,
+  location: string,
+  image: string
+}
+
+function LocItems(props: { campus: Campus }) {
+  const { campus } = props
+
+  return (
+    <div className="w-full md:flex-1" key={campus.id}>
+      <div className="bg-white rounded-t-md w-full flex items-center px-4">
+        <div className={`${campus.color} rounded-full w-[12px] h-[12px] mr-4`}></div>
+        <p className="text-black inline">{campus.header}</p>
+      </div>
+
+      <div 
+      className="bg-black flex-1 h-[520px] w-full bg-cover bg-no-repeat bg-center" 
+      style={{ backgroundImage: `url(${campus.image})` }}>
+        
+      </div>
+
+
+      <div className="bg-white w-full rounded-b-md text-black flex items-center px-4 py-2">
+        <FaLocationDot style={{fontSize: '2rem'}} />
+        <p className="italic ml-3">{campus.location}</p>
       </div>
     </div>
   )
