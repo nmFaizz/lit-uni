@@ -2,9 +2,15 @@ import { dateConvert } from "../../utils"
 
 export default function NewsItem(props: {id: number, title: string, date: string, body: string }) {
     const { id, title, date, body } = props
+    const longMonth: string = new Date(date).toLocaleDateString('en-US', {month: 'long'})
     
-    const longMonth = new Date(date).toLocaleDateString('en-US', {month: 'long'})
-    const dayDate = new Date(date).getDate()
+    const getDayDateString = (date: number): string => {
+        const result: string = date < 10 ? '0' + date.toString() : date.toString()
+        
+        return result
+    }
+
+    const dayDate: string = getDayDateString(new Date(date).getDate());
 
     return (
         <div className="w-full text-black flex lg:max-w-[820px] h-32 md:h-40" key={id}>
