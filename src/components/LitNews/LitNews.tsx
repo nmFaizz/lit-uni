@@ -25,9 +25,9 @@ export default function LitNews(): JSX.Element {
 
     return (
         <div className="px-5 w-full mb-9">
-            <p className="text-[4rem] italic">NEWS</p>
+            <p className="text-[3rem] md:text-[4rem] italic">NEWS</p>
             <div className="h-[2px] w-full bg-white"></div>
-            <div className="h-8 w-24 bg-white"></div>
+            <div className="h-4 md:h-8 w-24 bg-white"></div>
 
             <div className="flex mt-12 h-full flex-col lg:flex-row gap-4">
                 <div className="flex w-full flex-col gap-2 flex-1">

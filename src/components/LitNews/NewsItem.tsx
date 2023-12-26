@@ -8,7 +8,7 @@ export default function NewsItem(props: {id: number, title: string, date: string
 
     return (
         <div className="w-full text-black flex lg:max-w-[820px] h-32 md:h-40" key={id}>
-            <div className="bg-white w-[10.8rem] md:w-[17rem] text-center flex flex-col justify-center items-center border-e-red-500 border-8 border-solid border-y-transparent border-s-transparent">
+            <div className="bg-white h-full w-[10.8rem] md:w-[17rem] text-center flex flex-col justify-center items-center border-e-red-500 border-8 border-solid border-y-transparent border-s-transparent">
                 <p className="text-[3rem] md:text-[4rem] font-bold italic">{dayDate}</p>
                 <p className="text-[1.2rem] md:text-[1.6rem]">{longMonth}</p>
             </div>
