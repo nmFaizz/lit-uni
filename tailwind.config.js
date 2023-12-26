@@ -7,7 +7,10 @@ export default {
     "./src/components/LitLocation/LitLocation.tsx",
     "./src/components/NavBar/NavBar.tsx",
     "./src/components/SideBar/SideBar.tsx",
-    "./src/components/HeroSection/HeroSection.tsx"
+    "./src/components/HeroSection/HeroSection.tsx",
+    "./src/components/LitStat/LitStat.tsx",
+    "./src/components/LitAwards/LitAwards.tsx",
+    "./src/components/LitFooter/LitFooter.tsx"
   ],
   theme: {
     extend: {},
