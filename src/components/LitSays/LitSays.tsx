@@ -6,21 +6,21 @@ export default function LitSays() {
             image: '/lit-student-2.jpg',
             name: 'Arifiana Lougue',
             major: 'Computer Science',
-            says: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium eum dolore fuga optio aliquam, iure ut non veniam. Nobis, autem.'
+            says: 'LIT-UNIVERSITY provided me with a comprehensive Computer Science program. The professors were knowledgeable, and the resources available for research and projects were top-notch. I enjoyed the practical approach to learning, which prepared me well for my career.'
         },
         {
             id: 2,
             image: '/lit-student-1.jpg',
             name: 'Louise Chong',
             major: 'Machine Engineering',
-            says: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium eum dolore fuga optio aliquam, iure ut non veniam. Nobis, autem.'
+            says: 'Studying Machine Engineering at LIT-UNIVERSITY was a rewarding experience. The curriculum was challenging, but the support from faculty and peers made it manageable. The hands-on projects allowed me to apply theoretical knowledge in real-world scenarios, which was invaluable.'
         },
         {
             id: 3,
             image: '/lit-student-3.jpg',
             name: 'Hanashiro Anzu',
             major: 'Civil Engineering',
-            says: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium eum dolore fuga optio aliquam, iure ut non veniam. Nobis, autem.' 
+            says: 'LIT-UNIVERSITY offered a great Civil Engineering program. The faculty members were experienced professionals who provided valuable insights. The practical training and exposure to industry standards gave me a solid foundation for my career in Civil Engineering.' 
         }
     ]
 
@@ -32,9 +32,9 @@ export default function LitSays() {
                 <div className="h-[2px] bg-black w-full"></div>
             </div>
             <div className="flex justify-center py-12">
-                <div className="min-h-[560px] flex justify-center md:flex-row flex-col gap-32 md:gap-12 lg:gap-32 max-w-[780px] lg:max-w-[1060px] items-center">
+                <div className="flex justify-center md:flex-row flex-col gap-32 md:gap-12 lg:gap-32 max-w-[780px] lg:max-w-[1060px] items-center">
                     {locationData.map(data => 
-                        <div className="sm:w-[240px] w-[260px]" key={data.id}>
+                        <div className="sm:w-[240px] w-[260px] h-[550px]" key={data.id}>
 
                             <div className="flex justify-center">
                                 <div className="w-[150px] h-[150px] rounded-full overflow-hidden">

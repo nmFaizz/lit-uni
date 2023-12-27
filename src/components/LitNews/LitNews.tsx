@@ -11,7 +11,7 @@ export default function LitNews(): JSX.Element {
         },
         {
             id: 2,
-            title: 'Invented new technology to prevent malliscious things.', 
+            title: 'Invented new technology to prevent malicious things.', 
             date: '2023-12-01',
             body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas est consectetur tenetur officia blanditiis sapiente molestias minus pariatur laborum dignissimos?'
         },
